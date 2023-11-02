@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag N Drop</title>
+    <link rel="stylesheet" href="./app.css" />
+	<link rel="stylesheet" href="./nes.css" />
+  </head>
+<! –– audio control is sticky ––>
+  <body>
+  <div class="header" id="myHeader" style="text-align:center">
+  <audio controls>
+  <source src="how you like me now.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+  </audio>
+  </div>
+
+<! –– album cover ––>
+<div class="nes-container is-rounded is-dark" id="album" style="text-align:center"> 
+
+  <a href = https://www.theheavy.co.uk/> <img src="the heavy.jpg" alt="The heavy" width="200" height="200"> </a>
+
+
+<h2>The Heavy - How You Like Me Now?</h2>
+
+
+
+
+</div>
+
+  
+  <div id="drag-n-drop-quiz" ></div>
+    <script>
+      let questions = [];
+      questions[0] = [
+        '',
+        {
+          id: 1,
+          text: 'Now there was a time,',
+          dragOrder: 2,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'when you loved me so.',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'I couldn´t do wrong,',
+          dragOrder: 1,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'and now you need to know.',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+        },
+      ];
+       questions[1] = [
+         '',
+        {
+          id: 1,
+          text: 'See, I been a bad, bad, bad, bad man.',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'And I´m in deep.',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Yeah.',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		];
+		
+	questions[2] = [
+         '',
+        {
+          id: 1,
+          text: 'I found a brand new love for this man,',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'and can´t wait till you see.',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'I can´t wait.',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		];
+		
+		questions[3] = [
+         '',
+        {
+          id: 1,
+          text: 'So, how you like me now?',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'How you like me now?',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'How you like me now?',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+		{
+          id: 6,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 8, // correct order after drop
+        },
+      ];
+	  questions[4] = [
+        '',
+        {
+          id: 1,
+          text: 'Remember the time,',
+          dragOrder: 2,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'when I eat you up',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Yeah, I was a lie',
+          dragOrder: 1,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'that you can´t give up.',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+        },
+      ];
+	 questions[5] = [
+         '',
+        {
+          id: 1,
+          text: 'If I was to cheat',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Oh no, would you see right through me?',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'If I sing a sad, sad, sad, sad song',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'Would you give it to me?',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'Would you?',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+      ];
+	  questions[6] = [
+         '',
+        {
+          id: 1,
+          text: 'So, how you like me now?',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'How you like me now?',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'How you like me now?',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+		{
+          id: 6,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'How you like me now?',
+          dragOrder: 3,
+          dropOrder: 8, // correct order after drop
+        },
+      ];
+	  questions[7] = [
+         '',
+        {
+          id: 1,
+          text: 'Does that make you love me baby?',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Does that make you want me baby?',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Does that make you love me baby?',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'Does that make you want me baby?',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+      	  
+      ];
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
