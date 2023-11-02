@@ -157,7 +157,7 @@ src: url("PressStart2P-Regular.ttf");
 
                /* small boxes containing the verses */
 .drag-n-drop-quiz .question .drops .drop {
-  max-width: 400px;
+  max-width: 600px;
   min-height: 30px;
   margin: 0.5rem;
   align-items: center;
