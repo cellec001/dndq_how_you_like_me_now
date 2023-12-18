@@ -3,6 +3,10 @@
   --q-border-color-light: rgb(14, 156, 216);
 }
 
+#player {
+ width: 100%;
+	
+}
 @font-face {
 font-family: "kongtext";
 src: url("PressStart2P-Regular.ttf");
